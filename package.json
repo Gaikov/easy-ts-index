@@ -1,0 +1,27 @@
+{
+  "name": "easy-ts-index",
+  "version": "1.0.0-rc.0",
+  "description": "TypeScript module index generator",
+  "main": "index.js",
+  "repository": "https://github.com/Gaikov/easy-ts-index.git",
+  "scripts": {
+    "publish-dev": "npm version prerelease && npm publish"
+  },
+  "bin": {
+    "ts-index": "./index.js"
+  },
+  "keywords": [
+    "typescript",
+    "index.ts",
+    "generator",
+    "index",
+    "sources"
+  ],
+  "author": "Roman Gaikov",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "10.0.x",
+    "path": "0.12.x",
+    "stdio": "2.1.x"
+  }
+}
