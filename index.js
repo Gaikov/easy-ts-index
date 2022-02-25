@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require("fs-extra");
 const stdio = require("stdio");
 const path = require("path");
