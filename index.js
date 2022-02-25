@@ -19,24 +19,24 @@ function normalizePath(filePath) {
     return filePath.replace(/(\\|\/)+/g, "/");
 }
 
-function readFolderListing(folderPath) {
-    const list = fs.readdirSync(folderPath, {encoding: "utf8"}).map(name => folderPath + "/" + name);
+function readFilesRecursive(folderPath) {
+    const items = fs.readdirSync(folderPath, {encoding: "utf8"}).map(name => folderPath + "/" + name);
     let result = [];
 
-    for (const filePath of list) {
-        const stat = fs.statSync(filePath);
+    for (const path of items) {
+        const stat = fs.statSync(path);
         if (stat.isDirectory()) {
-            result = result.concat(readFolderListing(filePath));
+            result = result.concat(readFilesRecursive(path));
         } else {
-            result.push(filePath);
+            result.push(path);
         }
     }
 
     return result;
 }
 
-function readSourcesFolder(folder, excludeFolders = []) {
-    const list = readFolderListing(folder, excludeFolders);
+function readSourceFilesList(folder) {
+    const list = readFilesRecursive(folder);
 
     const sources = list.filter(filePath => {
         return filePath.match(TS_FILE_REGEX) && !filePath.match(DTS_FILE_REGEX);
@@ -53,9 +53,9 @@ if (ops.clean) {
         fs.removeSync(TS_INDEX);
     }
 } else if (ops.index) {
-    console.log("generating", TS_INDEX);
+    console.log("...generating", TS_INDEX);
 
-    const files = readSourcesFolder(TS_SOURCES).map(file => "./" + normalizePath(path.relative(TS_SOURCES, file)));
+    const files = readSourceFilesList(TS_SOURCES).map(file => "./" + normalizePath(path.relative(TS_SOURCES, file)));
     files.sort();
 
     let index = "";
