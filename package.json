@@ -1,6 +1,6 @@
 {
   "name": "easy-ts-index",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.4",
   "description": "TypeScript module index generator",
   "main": "index.js",
   "repository": "https://github.com/Gaikov/easy-ts-index.git",
