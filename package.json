@@ -15,7 +15,12 @@
     "index.ts",
     "generator",
     "index",
-    "sources"
+    "sources",
+    "creator",
+    "code",
+    "module",
+    "ts-index",
+    "easy-ts-index"
   ],
   "author": "Roman Gaikov",
   "license": "ISC",

@@ -1,5 +1,5 @@
 # Typescript modules index generator
-Easy to use typescript index file generator. Just need to specify sources folder path.
+Easy to use typescript index file creator/generator. If you create npm modules in typescript this tool will help to easily create index file for your module. Launch it before your module compilation to generate index file and after to remove index file. Just need to specify sources folder path in command line options.
 ## Install
 ```
 npm install easy-ts-index -g
@@ -7,7 +7,7 @@ npm install easy-ts-index -g
 
 ## Parameters
 ```
-USAGE: node ts-index [OPTION1] [OPTION2]... arg1 arg2...
+USAGE: ts-index [OPTION1] [OPTION2]... arg1 arg2...
 The following options are supported:
   -s, --sources <ARG1>  Generate typescript index.ts (required)
   -c, --clean           Remove typescript index file
